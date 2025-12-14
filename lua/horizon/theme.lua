@@ -455,6 +455,7 @@ local function get_plugin_highlights(data, custom)
     bufferline = {
       -- Generic Diagnostics
       ['BufferLineDiagnostic'] = { fg = p.ui.lightText, bg = p.ui.background },
+      ['BufferLineDiagnosticInactive'] = { fg = p.ui.lightText, bg = p.ui.background },
       ['BufferLineDiagnosticSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.ui.lightText },
       ['BufferLineDiagnosticVisible'] = { fg = p.ui.lightText, bg = p.ui.background, underline = true, sp = p.ui.lightText },
 
@@ -464,6 +465,7 @@ local function get_plugin_highlights(data, custom)
       ['BufferLineHintDiagnosticVisible'] = { fg = p.ansi.normal.green, bg = p.ui.background, underline = true, sp = p.ansi.normal.green },
 
       ['BufferLineHint'] = { fg = p.ansi.normal.green, bg = p.ui.background },
+      ['BufferLineHintInactive'] = { fg = p.ansi.normal.green, bg = t.bg, underline = true, sp = p.ansi.normal.green },
       ['BufferLineHintSelected'] = { fg = p.ansi.normal.green, bg = t.bg, underline = true, sp = p.ansi.normal.green },
       ['BufferLineHintVisible'] = { fg = p.ansi.normal.green, bg = p.ui.background, underline = true, sp = p.ansi.normal.green },
 
@@ -473,6 +475,7 @@ local function get_plugin_highlights(data, custom)
       ['BufferLineInfoDiagnosticVisible'] = { fg = p.ansi.normal.blue, bg = p.ui.background, underline = true, sp = p.ansi.normal.blue },
 
       ['BufferLineInfo'] = { fg = p.ansi.normal.blue, bg = p.ui.background },
+      ['BufferLineInfoInactive'] = { fg = p.ansi.normal.blue, bg = t.bg, underline = true, sp = p.ansi.normal.blue },
       ['BufferLineInfoSelected'] = { fg = p.ansi.normal.blue, bg = t.bg, underline = true, sp = p.ansi.normal.blue },
       ['BufferLineInfoVisible'] = { fg = p.ansi.normal.blue, bg = p.ui.background, underline = true, sp = p.ansi.normal.blue },
 
@@ -482,6 +485,7 @@ local function get_plugin_highlights(data, custom)
       ['BufferLineWarningDiagnosticVisible'] = { fg = p.ui.warning, bg = p.ui.background, underline = true, sp = p.syntax.cranberry },
 
       ['BufferLineWarning'] = { fg = p.ui.warning, bg = p.ui.background },
+      ['BufferLineWarningInactive'] = { fg = p.ui.warning, bg = t.bg, underline = true, sp = p.syntax.cranberry },
       ['BufferLineWarningSelected'] = { fg = p.ui.warning, bg = t.bg, underline = true, sp = p.syntax.cranberry },
       ['BufferLineWarningVisible'] = { fg = p.ui.warning, bg = p.ui.background, underline = true, sp = p.syntax.cranberry },
 
@@ -490,37 +494,57 @@ local function get_plugin_highlights(data, custom)
       ['BufferLineErrorDiagnosticSelected'] = { fg = p.ui.negative, bg = t.bg, underline = true, sp = p.ui.negative },
       ['BufferLineErrorDiagnosticVisible'] = { fg = p.ui.negative, bg = p.ui.background, underline = true, sp = p.ui.negative },
       ['BufferLineError'] = { fg = p.ui.negative, bg = p.ui.background },
+      ['BufferLineErrorInactive'] = { fg = p.ui.negative, bg = t.bg, underline = true, sp = p.ui.negative },
       ['BufferLineErrorSelected'] = { fg = p.ui.negative, bg = t.bg, underline = true, sp = p.ui.negative },
       ['BufferLineErrorVisible'] = { fg = p.ui.negative, bg = p.ui.background, underline = true, sp = p.ui.negative },
 
       -- Buffers
       ['BufferLineBuffer'] = { fg = p.syntax.gray, bg = p.ui.background },
+      ['BufferLineBufferInactive'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
       ['BufferLineBufferVisible'] = { fg = p.ui.lightText, bg = p.ui.background },
       ['BufferLineBufferSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
 
       -- Numbers
       ['BufferLineNumbers'] = { fg = p.syntax.gray, bg = p.ui.background },
+      ['BufferLineNumbersInactive'] = { fg = t.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
       ['BufferLineNumbersVisible'] = { fg = p.ui.lightText, bg = p.ui.background },
       ['BufferLineNumbersSelected'] = { fg = t.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
 
       -- Indicator / underline under file icon
       ['BufferLineIndicator'] = { fg = p.ui.background, bg = p.ui.background },
+      ['BufferLineIndicatorInactive'] = { fg = p.syntax.cranberry, bg = t.bg, underline = true, sp = p.syntax.cranberry },
       ['BufferLineIndicatorVisible'] = { fg = p.syntax.cranberry, bg = p.ui.background, underline = true, sp = p.syntax.cranberry },
       ['BufferLineIndicatorSelected'] = { fg = p.syntax.cranberry, bg = t.bg, underline = true, sp = p.syntax.cranberry },
 
       ['BufferLineTab'] = { fg = t.fg, bg = p.ui.background },
+      ['BufferLineTabInactive'] = { fg = p.ansi.normal.blue, bg = t.bg, bold = true },
       ['BufferLineTabSelected'] = { fg = p.ansi.normal.blue, bg = t.bg, bold = true },
 
       ['BufferLineSeparatorSelected'] = { fg = p.syntax.cranberry, bg = t.bg, underline = true },
       ['BufferLineSeparator'] = { fg = 'NONE', bg = p.ui.background },
+      ['BufferLineSeparatorInactive'] = { fg = p.syntax.cranberry, bg = t.bg, underline = true },
 
       ['BufferLineCloseButton'] = { fg = t.fg, bg = p.ui.background },
+      ['BufferLineCloseButtonInactive'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
       ['BufferLineCloseButtonSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
 
       ['BufferLineModified'] = { fg = p.syntax.purple, bg = p.ui.background },
       ['BufferLineModifiedSelected'] = { fg = p.syntax.purple, bg = t.bg, sp = p.syntax.cranberry, underline = true },
-      ['BufferLineMiniIconsAzureSelected'] = {fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry},
-      ['BufferLineMiniIconsAzureVisible'] = {fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry},
+      ['BufferLineMiniIconsAzureSelected'] = { fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsAzureInactive'] = { fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsAzureVisible'] = { fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsOrangeSelected'] = { fg = t.constant.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsOrange'] = { fg = t.constant.fg, bg = t.bg, underline = false, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsGreen'] = { fg = p.ansi.normal.green, bg = t.bg, underline = false, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsGreenSelected'] = { fg = p.ansi.normal.green, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsYellow'] = { fg = p.ansi.normal.yellow, bg = t.bg, underline = false, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsYellowSelected'] = { fg = p.ansi.normal.yellow, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsPurple'] = { fg = p.ansi.normal.magenta, bg = t.bg, underline = false, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsPurpleSelected'] = { fg = p.ansi.normal.magenta, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsGrey'] = { fg = p.syntax.gray, bg = t.bg, underline = false, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsGreySelected'] = { fg = p.syntax.gray, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsCyan'] = { fg = p.ansi.normal.cyan, bg = t.bg, underline = false, sp = p.syntax.cranberry },
+      ['BufferLineMiniIconsCyanSelected'] = { fg = p.ansi.normal.cyan, bg = t.bg, underline = true, sp = p.syntax.cranberry },
     },
 
 
