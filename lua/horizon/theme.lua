@@ -31,11 +31,11 @@ local function get_custom_highlights(data)
     info = p.syntax.turquoise,
     warn = p.syntax.apricot,
     error = t.error,
-    error_bg = tint(t.error, -0.8), -- #33222c,
-    warn_bg = tint(p.syntax.apricot, -0.8), -- #332e31,
+    error_bg = tint(t.error, -0.8),           -- #33222c,
+    warn_bg = tint(p.syntax.apricot, -0.8),   -- #332e31,
     info_bg = tint(p.syntax.turquoise, -0.7), -- #1e3132,
-    hint_bg = tint(p.syntax.lavender, -0.7), -- #252732,
-    purple1 = tint(p.syntax.lavender, -0.2), -- #B180D7,
+    hint_bg = tint(p.syntax.lavender, -0.7),  -- #252732,
+    purple1 = tint(p.syntax.lavender, -0.2),  -- #B180D7,
     gray = '#4B4C53',
     gold = '#C09553',
     blue = '#042E48',
@@ -451,6 +451,79 @@ local function get_plugin_highlights(data, custom)
       ['BufferInactiveSign'] = { fg = custom.gray, bg = p.ui.background },
       ['BufferInactiveTarget'] = { fg = p.syntax.cranberry, bg = p.ui.background, bold = true },
     },
+
+    bufferline = {
+      -- Generic Diagnostics
+      ['BufferLineDiagnostic'] = { fg = p.ui.lightText, bg = p.ui.background },
+      ['BufferLineDiagnosticSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.ui.lightText },
+      ['BufferLineDiagnosticVisible'] = { fg = p.ui.lightText, bg = p.ui.background, underline = true, sp = p.ui.lightText },
+
+      -- Hint Diagnostics
+      ['BufferLineHintDiagnostic'] = { fg = p.ansi.normal.green, bg = p.ui.background },
+      ['BufferLineHintDiagnosticSelected'] = { fg = p.ansi.normal.green, bg = t.bg, underline = true, sp = p.ansi.normal.green },
+      ['BufferLineHintDiagnosticVisible'] = { fg = p.ansi.normal.green, bg = p.ui.background, underline = true, sp = p.ansi.normal.green },
+
+      ['BufferLineHint'] = { fg = p.ansi.normal.green, bg = p.ui.background },
+      ['BufferLineHintSelected'] = { fg = p.ansi.normal.green, bg = t.bg, underline = true, sp = p.ansi.normal.green },
+      ['BufferLineHintVisible'] = { fg = p.ansi.normal.green, bg = p.ui.background, underline = true, sp = p.ansi.normal.green },
+
+      -- Info Diagnostics
+      ['BufferLineInfoDiagnostic'] = { fg = p.ansi.normal.blue, bg = p.ui.background },
+      ['BufferLineInfoDiagnosticSelected'] = { fg = p.ansi.normal.blue, bg = t.bg, underline = true, sp = p.ansi.normal.blue },
+      ['BufferLineInfoDiagnosticVisible'] = { fg = p.ansi.normal.blue, bg = p.ui.background, underline = true, sp = p.ansi.normal.blue },
+
+      ['BufferLineInfo'] = { fg = p.ansi.normal.blue, bg = p.ui.background },
+      ['BufferLineInfoSelected'] = { fg = p.ansi.normal.blue, bg = t.bg, underline = true, sp = p.ansi.normal.blue },
+      ['BufferLineInfoVisible'] = { fg = p.ansi.normal.blue, bg = p.ui.background, underline = true, sp = p.ansi.normal.blue },
+
+      -- Warning Diagnostics
+      ['BufferLineWarningDiagnostic'] = { fg = p.ui.warning, bg = p.ui.background },
+      ['BufferLineWarningDiagnosticSelected'] = { fg = p.ui.warning, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineWarningDiagnosticVisible'] = { fg = p.ui.warning, bg = p.ui.background, underline = true, sp = p.syntax.cranberry },
+
+      ['BufferLineWarning'] = { fg = p.ui.warning, bg = p.ui.background },
+      ['BufferLineWarningSelected'] = { fg = p.ui.warning, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineWarningVisible'] = { fg = p.ui.warning, bg = p.ui.background, underline = true, sp = p.syntax.cranberry },
+
+      -- Error Diagnostics
+      ['BufferLineErrorDiagnostic'] = { fg = p.ui.negative, bg = p.ui.background },
+      ['BufferLineErrorDiagnosticSelected'] = { fg = p.ui.negative, bg = t.bg, underline = true, sp = p.ui.negative },
+      ['BufferLineErrorDiagnosticVisible'] = { fg = p.ui.negative, bg = p.ui.background, underline = true, sp = p.ui.negative },
+      ['BufferLineError'] = { fg = p.ui.negative, bg = p.ui.background },
+      ['BufferLineErrorSelected'] = { fg = p.ui.negative, bg = t.bg, underline = true, sp = p.ui.negative },
+      ['BufferLineErrorVisible'] = { fg = p.ui.negative, bg = p.ui.background, underline = true, sp = p.ui.negative },
+
+      -- Buffers
+      ['BufferLineBuffer'] = { fg = p.syntax.gray, bg = p.ui.background },
+      ['BufferLineBufferVisible'] = { fg = p.ui.lightText, bg = p.ui.background },
+      ['BufferLineBufferSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+
+      -- Numbers
+      ['BufferLineNumbers'] = { fg = p.syntax.gray, bg = p.ui.background },
+      ['BufferLineNumbersVisible'] = { fg = p.ui.lightText, bg = p.ui.background },
+      ['BufferLineNumbersSelected'] = { fg = t.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+
+      -- Indicator / underline under file icon
+      ['BufferLineIndicator'] = { fg = p.ui.background, bg = p.ui.background },
+      ['BufferLineIndicatorVisible'] = { fg = p.syntax.cranberry, bg = p.ui.background, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineIndicatorSelected'] = { fg = p.syntax.cranberry, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+
+      ['BufferLineTab'] = { fg = t.fg, bg = p.ui.background },
+      ['BufferLineTabSelected'] = { fg = p.ansi.normal.blue, bg = t.bg, bold = true },
+
+      ['BufferLineSeparatorSelected'] = { fg = p.syntax.cranberry, bg = t.bg, underline = true },
+      ['BufferLineSeparator'] = { fg = 'NONE', bg = p.ui.background },
+
+      ['BufferLineCloseButton'] = { fg = t.fg, bg = p.ui.background },
+      ['BufferLineCloseButtonSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+
+      ['BufferLineModified'] = { fg = p.syntax.purple, bg = p.ui.background },
+      ['BufferLineModifiedSelected'] = { fg = p.syntax.purple, bg = t.bg, sp = p.syntax.cranberry, underline = true },
+      ['BufferLineMiniIconsAzureSelected'] = {fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry},
+      ['BufferLineMiniIconsAzureVisible'] = {fg = t.func.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry},
+    },
+
+
     indent_blankline = {
       ['IndentBlanklineContextChar'] = { fg = t.indent_guide_active_fg },
       ['IndentBlanklineContextStart'] = { sp = t.indent_guide_active_fg, underline = true },
