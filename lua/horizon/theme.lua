@@ -504,6 +504,11 @@ local function get_plugin_highlights(data, custom)
       ['BufferLineBufferVisible'] = { fg = p.ui.lightText, bg = p.ui.background },
       ['BufferLineBufferSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
 
+      ['BufferLineDuplicate'] = { fg = t.term_cursor_fg, bg = p.ui.background },
+      ['BufferLineDuplicateInactive'] = { fg = t.term_cursor_fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+      ['BufferLineDuplicateVisible'] = { fg = t.term_cursor_fg, bg = p.ui.background },
+      ['BufferLineDuplicateSelected'] = { fg = p.ui.lightText, bg = t.bg, underline = true, sp = p.syntax.cranberry },
+
       -- Numbers
       ['BufferLineNumbers'] = { fg = p.syntax.gray, bg = p.ui.background },
       ['BufferLineNumbersInactive'] = { fg = t.fg, bg = t.bg, underline = true, sp = p.syntax.cranberry },
